@@ -430,7 +430,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation;
 
-- (UIColor *)mapView:(MGLMapView *)mapView fillColorForPolygonAnnotation:(MGLPolygon *)annotation __attribute__((deprecated("Use -[MGLMapViewDelegate mapView:fillColorForShape:].")));
+- (UIColor *)mapView:(MGLMapView *)mapView fillColorForPolygonAnnotation:(MGLPolygon *)annotation __attribute__((deprecated("", "-mapView:fillColorForShape:")));
 
 /**
  Returns the color to use when rendering the fill of a shape annotation.
