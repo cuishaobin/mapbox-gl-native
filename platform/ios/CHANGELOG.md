@@ -2,6 +2,11 @@
 
 Mapbox welcomes participation and contributions from everyone. Please read [CONTRIBUTING.md](../../CONTRIBUTING.md) to get started.
 
+## master
+
+* Added the `MGLCircle` class for adding physical circles to the map view as overlays or to a shape source as polygons. ([#14534](https://github.com/mapbox/mapbox-gl-native/pull/14534))
+* Deprecated the `-[MGLMapViewDelegate mapView:fillColorForPolygonAnnotation:]` method in favor of `-[MGLMapViewDelegate mapView:fillColorForShape:]`, which is also called for `MGLCircle` annotations. ([#14534](https://github.com/mapbox/mapbox-gl-native/pull/14534))
+
 ## 4.11.0
 
 * Fixed an Interface Builder crash when using an `MGLMapView` in a storyboard. ([#14379](https://github.com/mapbox/mapbox-gl-native/pull/14379))
