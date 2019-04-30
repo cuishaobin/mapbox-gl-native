@@ -21,6 +21,16 @@
 #include <mbgl/math/log2.hpp>
 #include <utility>
 
+extern float g_mapbox_fov;
+
+void mapBoxSetFov(float fov) {
+    g_mapbox_fov = fov;
+}
+
+float mapBoxGetFov() {
+    return g_mapbox_fov;
+}
+
 namespace mbgl {
 
 using namespace style;

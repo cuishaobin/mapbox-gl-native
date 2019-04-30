@@ -6,6 +6,8 @@
 #include <mbgl/math/log2.hpp>
 #include <mbgl/math/clamp.hpp>
 
+float g_mapbox_fov = 1.047198;
+
 namespace mbgl {
 
 TransformState::TransformState(ConstrainMode constrainMode_, ViewportMode viewportMode_)
@@ -229,11 +231,12 @@ float TransformState::getAngle() const {
 }
 
 float TransformState::getFieldOfView() const {
-    return fov;
+    return g_mapbox_fov;
+    //return fov;
 }
 
 float TransformState::getCameraToCenterDistance() const {
-    return 0.5 * size.height / std::tan(fov / 2.0);
+    return 0.5 * size.height / std::tan(getFieldOfView() / 2.0);
 }
 
 float TransformState::getPitch() const {

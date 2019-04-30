@@ -16,6 +16,15 @@
 #include <vector>
 #include <memory>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+    void mapBoxSetFov(float fov);
+    float mapBoxGetFov();
+#ifdef __cplusplus
+}
+#endif
+    
 namespace mbgl {
 
 class FileSource;
