@@ -284,8 +284,15 @@
 		ACF969F220CB04E600B23FB7 /* MMEEventsService.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF969F020CB04E500B23FB7 /* MMEEventsService.m */; };
 		ACF969F420CB04E600B23FB7 /* MMEEventsService.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF969F120CB04E500B23FB7 /* MMEEventsService.h */; };
 		ACF969F520CB04E600B23FB7 /* MMEEventsService.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF969F120CB04E500B23FB7 /* MMEEventsService.h */; };
+		B60F45252361BE7100C73B92 /* AMapMapBoxDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F45212361BE7100C73B92 /* AMapMapBoxDummy.m */; };
+		B60F45262361BE7100C73B92 /* AMapMapBoxDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F45212361BE7100C73B92 /* AMapMapBoxDummy.m */; };
+		B60F45272361BE7100C73B92 /* AMapMBGlobalSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = B60F45222361BE7100C73B92 /* AMapMBGlobalSetting.h */; };
+		B60F45282361BE7100C73B92 /* AMapMBGlobalSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = B60F45222361BE7100C73B92 /* AMapMBGlobalSetting.h */; };
+		B60F45292361BE7100C73B92 /* AMapMBGlobalSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F45232361BE7100C73B92 /* AMapMBGlobalSetting.m */; };
+		B60F452A2361BE7100C73B92 /* AMapMBGlobalSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F45232361BE7100C73B92 /* AMapMBGlobalSetting.m */; };
+		B60F452B2361BE7100C73B92 /* AMapMapBoxDummy.h in Headers */ = {isa = PBXBuildFile; fileRef = B60F45242361BE7100C73B92 /* AMapMapBoxDummy.h */; };
+		B60F452C2361BE7100C73B92 /* AMapMapBoxDummy.h in Headers */ = {isa = PBXBuildFile; fileRef = B60F45242361BE7100C73B92 /* AMapMapBoxDummy.h */; };
 		B69D9D2B22785BB0008BFD3B /* AMapMapBoxDummy.h in Headers */ = {isa = PBXBuildFile; fileRef = B69D9D2922785BAF008BFD3B /* AMapMapBoxDummy.h */; };
-		B69D9D2C22785BB0008BFD3B /* AMapMapBoxDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B69D9D2A22785BAF008BFD3B /* AMapMapBoxDummy.m */; };
 		CA0C27922076C804001CE5B7 /* MGLShapeSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0C27912076C804001CE5B7 /* MGLShapeSourceTests.m */; };
 		CA0C27942076CA19001CE5B7 /* MGLMapViewIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0C27932076CA19001CE5B7 /* MGLMapViewIntegrationTest.m */; };
 		CA1B4A512099FB2200EDD491 /* MGLMapSnapshotterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1B4A502099FB2200EDD491 /* MGLMapSnapshotterTest.m */; };
@@ -881,6 +888,10 @@
 		AC518DFE201BB55A00EBC820 /* MGLTelemetryConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGLTelemetryConfig.m; sourceTree = "<group>"; };
 		ACF969F020CB04E500B23FB7 /* MMEEventsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMEEventsService.m; path = "vendor/mapbox-events-ios/MapboxMobileEvents/MMEEventsService.m"; sourceTree = SOURCE_ROOT; };
 		ACF969F120CB04E500B23FB7 /* MMEEventsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMEEventsService.h; path = "vendor/mapbox-events-ios/MapboxMobileEvents/MMEEventsService.h"; sourceTree = SOURCE_ROOT; };
+		B60F45212361BE7100C73B92 /* AMapMapBoxDummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMapBoxDummy.m; sourceTree = "<group>"; };
+		B60F45222361BE7100C73B92 /* AMapMBGlobalSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMBGlobalSetting.h; sourceTree = "<group>"; };
+		B60F45232361BE7100C73B92 /* AMapMBGlobalSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMBGlobalSetting.m; sourceTree = "<group>"; };
+		B60F45242361BE7100C73B92 /* AMapMapBoxDummy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMapBoxDummy.h; sourceTree = "<group>"; };
 		B69D9D2922785BAF008BFD3B /* AMapMapBoxDummy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMapBoxDummy.h; sourceTree = SOURCE_ROOT; };
 		B69D9D2A22785BAF008BFD3B /* AMapMapBoxDummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMapBoxDummy.m; sourceTree = SOURCE_ROOT; };
 		CA0C27912076C804001CE5B7 /* MGLShapeSourceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGLShapeSourceTests.m; sourceTree = "<group>"; };
@@ -1595,6 +1606,17 @@
 			name = Fixtures;
 			sourceTree = "<group>";
 		};
+		B60F45202361BE7100C73B92 /* amap */ = {
+			isa = PBXGroup;
+			children = (
+				B60F45212361BE7100C73B92 /* AMapMapBoxDummy.m */,
+				B60F45222361BE7100C73B92 /* AMapMBGlobalSetting.h */,
+				B60F45232361BE7100C73B92 /* AMapMBGlobalSetting.m */,
+				B60F45242361BE7100C73B92 /* AMapMapBoxDummy.h */,
+			);
+			path = amap;
+			sourceTree = "<group>";
+		};
 		CA1B4A4F2099FA2800EDD491 /* Snapshotter Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1614,6 +1636,7 @@
 		DA1DC9411CB6C1C2006E619F = {
 			isa = PBXGroup;
 			children = (
+				B60F45202361BE7100C73B92 /* amap */,
 				402E9DE21CD3A56500FD4519 /* Playground */,
 				DA1DC94C1CB6C1C2006E619F /* Demo App */,
 				DABCABA91CB80692000A7C39 /* Benchmarking App */,
@@ -2119,6 +2142,7 @@
 				1F06668A1EC64F8E001C16D7 /* MGLLight.h in Headers */,
 				4049C29D1DB6CD6C00B3F799 /* MGLPointCollection.h in Headers */,
 				40CF6DBB1DAC3C6600A4D18B /* MGLShape_Private.h in Headers */,
+				B60F45272361BE7100C73B92 /* AMapMBGlobalSetting.h in Headers */,
 				4018B1CA1CDC288E00F666AF /* MGLAnnotationView.h in Headers */,
 				9654C1291FFC1CCD00DB6A19 /* MGLPolygon_Private.h in Headers */,
 				35E79F201D41266300957B9E /* MGLStyleLayer_Private.h in Headers */,
@@ -2139,6 +2163,7 @@
 				92F2C3ED1F0E3C3A00268EC0 /* MGLRendererFrontend.h in Headers */,
 				DAAF722D1DA903C700312FA4 /* MGLStyleValue_Private.h in Headers */,
 				071BBB031EE76146001FB02A /* MGLImageSource.h in Headers */,
+				B60F452B2361BE7100C73B92 /* AMapMapBoxDummy.h in Headers */,
 				DA8847F41CBAFA5100AB86E3 /* MGLOfflinePack.h in Headers */,
 				DA88482E1CBAFA6200AB86E3 /* NSException+MGLAdditions.h in Headers */,
 				96F3F73C1F57124B003E2D2C /* MGLUserLocationHeadingIndicator.h in Headers */,
@@ -2254,6 +2279,7 @@
 				DAF2571C201901E200367EF5 /* MGLHillshadeStyleLayer.h in Headers */,
 				DABFB8621CBE99E500D62B32 /* MGLOfflinePack.h in Headers */,
 				96E516FA20005A3D00A02306 /* MGLUserLocationHeadingArrowLayer.h in Headers */,
+				B60F45282361BE7100C73B92 /* AMapMBGlobalSetting.h in Headers */,
 				96E516E62000560B00A02306 /* MGLOfflineRegion_Private.h in Headers */,
 				DAD1656D1CF41981001FF4B9 /* MGLFeature.h in Headers */,
 				96E516E72000560B00A02306 /* MGLOfflineStorage_Private.h in Headers */,
@@ -2274,6 +2300,7 @@
 				DA72620C1DEEE3480043BB89 /* MGLOpenGLStyleLayer.h in Headers */,
 				35CE61831D4165D9004F2359 /* UIColor+MGLAdditions.h in Headers */,
 				96E516F32000597100A02306 /* NSDictionary+MGLAdditions.h in Headers */,
+				B60F452C2361BE7100C73B92 /* AMapMapBoxDummy.h in Headers */,
 				96E516F02000595800A02306 /* NSBundle+MGLAdditions.h in Headers */,
 				96E516F920005A3500A02306 /* MGLFaux3DUserLocationAnnotationView.h in Headers */,
 				96E516F22000596D00A02306 /* NSException+MGLAdditions.h in Headers */,
@@ -2824,6 +2851,7 @@
 				400533021DB0862B0069F638 /* NSArray+MGLAdditions.mm in Sources */,
 				96036A03200565C700510F3D /* NSOrthography+MGLAdditions.m in Sources */,
 				40834BF31FE05E1800C1BD0D /* MMETimerManager.m in Sources */,
+				B60F45292361BE7100C73B92 /* AMapMBGlobalSetting.m in Sources */,
 				35136D421D42274500C20EFD /* MGLRasterStyleLayer.mm in Sources */,
 				3538AA1F1D542239008EC33D /* MGLForegroundStyleLayer.mm in Sources */,
 				40834BF11FE05E1800C1BD0D /* MMENSDateWrapper.m in Sources */,
@@ -2913,6 +2941,7 @@
 				DA8848271CBAFA6200AB86E3 /* MGLPolyline.mm in Sources */,
 				DA8848581CBAFB9800AB86E3 /* MGLMapboxEvents.m in Sources */,
 				35CE61841D4165D9004F2359 /* UIColor+MGLAdditions.mm in Sources */,
+				B60F45252361BE7100C73B92 /* AMapMapBoxDummy.m in Sources */,
 				3EA93369F61CF70AFA50465D /* MGLRendererConfiguration.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2921,7 +2950,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69D9D2C22785BB0008BFD3B /* AMapMapBoxDummy.m in Sources */,
+				B60F452A2361BE7100C73B92 /* AMapMBGlobalSetting.m in Sources */,
+				B60F45262361BE7100C73B92 /* AMapMapBoxDummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
