@@ -260,6 +260,11 @@ ipackage-strip: $(IOS_PROJ_PATH)
 	FORMAT=$(FORMAT) BUILD_DEVICE=$(BUILD_DEVICE) SYMBOLS=NO \
 	./platform/ios/scripts/package.sh
 
+.PHONY: ipackage-strip-static
+ipackage-strip-static: $(IOS_PROJ_PATH)
+	FORMAT=static BUILD_DEVICE=$(BUILD_DEVICE) SYMBOLS=NO \
+	./platform/ios/scripts/package.sh
+
 .PHONY: ipackage-sim
 ipackage-sim: $(IOS_PROJ_PATH)
 	BUILDTYPE=Debug FORMAT=dynamic BUILD_DEVICE=false SYMBOLS=$(SYMBOLS) \
