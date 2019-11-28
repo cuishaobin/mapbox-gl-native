@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/actor/actor_ref.hpp>
 
@@ -20,3 +22,5 @@ private:
 };
 
 } // namespace mbgl
+
+#endif

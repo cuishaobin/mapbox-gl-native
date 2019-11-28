@@ -1,3 +1,5 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+
 #include <mbgl/style/conversion/source.hpp>
 #include <mbgl/style/conversion/coordinate.hpp>
 #include <mbgl/style/conversion/geojson.hpp>
@@ -89,6 +91,7 @@ static optional<std::unique_ptr<Source>> convertVectorSource(const std::string& 
     return { std::make_unique<VectorSource>(id, std::move(*urlOrTileset)) };
 }
 
+#if mbgl_core_include_geojson
 static optional<std::unique_ptr<Source>> convertGeoJSONSource(const std::string& id,
                                                               const Convertible& value,
                                                               Error& error) {
@@ -120,7 +123,8 @@ static optional<std::unique_ptr<Source>> convertGeoJSONSource(const std::string&
 
     return { std::move(result) };
 }
-
+#endif
+    
 static optional<std::unique_ptr<Source>> convertImageSource(const std::string& id,
                                                             const Convertible& value,
                                                             Error& error) {
@@ -186,7 +190,12 @@ optional<std::unique_ptr<Source>> Converter<std::unique_ptr<Source>>::operator()
     } else if (*type == "vector") {
         return convertVectorSource(id, value, error);
     } else if (*type == "geojson") {
+#if mbgl_core_include_geojson
         return convertGeoJSONSource(id, value, error);
+#else
+        error = { "invalid source type" };
+        return {};
+#endif
     } else if (*type == "image") {
         return convertImageSource(id, value, error);
     } else {

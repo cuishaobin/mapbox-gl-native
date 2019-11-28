@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/gl/index_buffer.hpp>
 #include <mbgl/gl/texture.hpp>
@@ -39,3 +41,5 @@ public:
 };
 
 } // namespace mbgl
+
+#endif

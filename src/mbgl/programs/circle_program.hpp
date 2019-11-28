@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
 
 #include <mbgl/programs/program.hpp>
 #include <mbgl/programs/attributes.hpp>
@@ -49,3 +51,5 @@ using CircleLayoutVertex = CircleProgram::LayoutVertex;
 using CircleAttributes = CircleProgram::Attributes;
 
 } // namespace mbgl
+
+#endif

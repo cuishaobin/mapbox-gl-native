@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/renderer/render_source.hpp>
 #include <mbgl/renderer/render_tile.hpp>
@@ -57,3 +59,5 @@ inline bool RenderSource::is<RenderImageSource>() const {
 }
 
 } // namespace mbgl
+
+#endif

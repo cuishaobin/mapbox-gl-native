@@ -1,3 +1,5 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+
 #include <mbgl/annotation/annotation_manager.hpp>
 #include <mbgl/renderer/renderer_impl.hpp>
 #include <mbgl/renderer/renderer_backend.hpp>
@@ -182,9 +184,11 @@ void Renderer::Impl::render(const UpdateParameters& updateParameters) {
         if (layerAdded || layerChanged) {
             layer.transition(transitionParameters);
 
+#if mbgl_core_include_heatmaplayer
             if (layer.is<RenderHeatmapLayer>()) {
                 layer.as<RenderHeatmapLayer>()->updateColorRamp();
             }
+#endif
         }
 
         if (layerAdded || layerChanged || zoomChanged || layer.hasTransition()) {
@@ -290,13 +294,28 @@ void Renderer::Impl::render(const UpdateParameters& updateParameters) {
         RenderLayer* layer = getRenderLayer(layerImpl->id);
         assert(layer);
 
-        if (!parameters.staticData.has3D && (
-                layer->is<RenderFillExtrusionLayer>() ||
-                layer->is<RenderHillshadeLayer>() ||
-                layer->is<RenderHeatmapLayer>())) {
-
-            parameters.staticData.has3D = true;
+        if (!parameters.staticData.has3D) {
+            if(layer->is<RenderFillExtrusionLayer>()) {
+                parameters.staticData.has3D = true;
+            }
+#if mbgl_core_include_heatmaplayer
+            else if(layer->is<RenderHillshadeLayer>()) {
+                parameters.staticData.has3D = true;
+            }
+#endif
+#if mbgl_core_include_hillshadelayer
+            else if(layer->is<RenderHeatmapLayer>()) {
+                parameters.staticData.has3D = true;
+            }
+#endif
         }
+//        if (!parameters.staticData.has3D && (
+//                                             layer->is<RenderFillExtrusionLayer>() ||
+//                                             layer->is<RenderHillshadeLayer>() ||
+//                                             layer->is<RenderHeatmapLayer>())) {
+//
+//            parameters.staticData.has3D = true;
+//        }
 
         if (!layer->needsRendering(zoomHistory.lastZoom)) {
             continue;

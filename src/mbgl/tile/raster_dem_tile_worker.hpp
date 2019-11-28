@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 #include <mbgl/actor/actor_ref.hpp>
 #include <mbgl/util/tileset.hpp>
@@ -21,3 +23,5 @@ private:
 };
 
 } // namespace mbgl
+
+#endif

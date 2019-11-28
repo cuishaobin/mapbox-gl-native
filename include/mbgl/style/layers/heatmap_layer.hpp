@@ -2,6 +2,9 @@
 
 #pragma once
 
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/style/color_ramp_property_value.hpp>
 #include <mbgl/style/layer.hpp>
 #include <mbgl/style/filter.hpp>
@@ -84,3 +87,5 @@ inline bool Layer::is<HeatmapLayer>() const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

@@ -1,3 +1,5 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+
 #include <mbgl/style/conversion/layer.hpp>
 #include <mbgl/style/conversion/constant.hpp>
 #include <mbgl/style/conversion/filter.hpp>
@@ -85,6 +87,7 @@ optional<std::unique_ptr<Layer>> convertVectorLayer(const std::string& id, const
     return { std::move(layer) };
 }
 
+#if mbgl_core_include_rasterlayer
 static optional<std::unique_ptr<Layer>> convertRasterLayer(const std::string& id, const Convertible& value, Error& error) {
     auto sourceValue = objectMember(value, "source");
     if (!sourceValue) {
@@ -100,7 +103,9 @@ static optional<std::unique_ptr<Layer>> convertRasterLayer(const std::string& id
 
     return { std::make_unique<RasterLayer>(id, *source) };
 }
+#endif
 
+#if mbgl_core_include_hillshadelayer
 static optional<std::unique_ptr<Layer>> convertHillshadeLayer(const std::string& id, const Convertible& value, Error& error) {
     auto sourceValue = objectMember(value, "source");
     if (!sourceValue) {
@@ -116,7 +121,7 @@ static optional<std::unique_ptr<Layer>> convertHillshadeLayer(const std::string&
 
     return { std::make_unique<HillshadeLayer>(id, *source) };
 }
-
+#endif
 
 static optional<std::unique_ptr<Layer>> convertBackgroundLayer(const std::string& id, const Convertible&, Error&) {
     return { std::make_unique<BackgroundLayer>(id) };
@@ -161,15 +166,35 @@ optional<std::unique_ptr<Layer>> Converter<std::unique_ptr<Layer>>::operator()(c
     } else if (*type == "line") {
         converted = convertVectorLayer<LineLayer>(*id, value, error);
     } else if (*type == "circle") {
+#if mbgl_core_include_circlelayer
         converted = convertVectorLayer<CircleLayer>(*id, value, error);
+#else
+        error = { "invalid layer type" };
+        return {};
+#endif
     } else if (*type == "symbol") {
         converted = convertVectorLayer<SymbolLayer>(*id, value, error);
     } else if (*type == "raster") {
+#if mbgl_core_include_rasterlayer
         converted = convertRasterLayer(*id, value, error);
+#else
+        error = { "invalid layer type" };
+        return {};
+#endif
     } else if (*type == "heatmap") {
+#if mbgl_core_include_heatmaplayer
         converted = convertVectorLayer<HeatmapLayer>(*id, value, error);
+#else
+        error = { "invalid layer type" };
+        return {};
+#endif
     } else if (*type == "hillshade") {
+#if mbgl_core_include_rasterlayer
         converted = convertHillshadeLayer(*id, value, error);
+#else
+        error = { "invalid layer type" };
+        return {};
+#endif
     } else if (*type == "background") {
         converted = convertBackgroundLayer(*id, value, error);
     } else {

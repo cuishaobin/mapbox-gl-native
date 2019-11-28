@@ -1,5 +1,8 @@
 #pragma once
 
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/renderer/render_layer.hpp>
 #include <mbgl/style/layers/heatmap_layer_impl.hpp>
 #include <mbgl/style/layers/heatmap_layer_properties.hpp>
@@ -47,3 +50,5 @@ inline bool RenderLayer::is<RenderHeatmapLayer>() const {
 }
 
 } // namespace mbgl
+
+#endif

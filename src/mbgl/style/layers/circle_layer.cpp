@@ -1,4 +1,6 @@
 // This file is generated. Edit scripts/generate-style-code.js, then run `make style-code`.
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
 
 #include <mbgl/style/layers/circle_layer.hpp>
 #include <mbgl/style/layers/circle_layer_impl.hpp>
@@ -395,3 +397,5 @@ TransitionOptions CircleLayer::getCircleStrokeOpacityTransition() const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

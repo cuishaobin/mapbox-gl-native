@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
+
 #include <mbgl/renderer/layers/render_hillshade_layer.hpp>
 #include <mbgl/renderer/buckets/hillshade_bucket.hpp>
 #include <mbgl/renderer/render_tile.hpp>
@@ -191,3 +194,5 @@ void RenderHillshadeLayer::render(PaintParameters& parameters, RenderSource* src
 }
 
 } // namespace mbgl
+
+#endif

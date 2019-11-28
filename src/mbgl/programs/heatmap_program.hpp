@@ -1,5 +1,8 @@
 #pragma once
 
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/programs/program.hpp>
 #include <mbgl/programs/attributes.hpp>
 #include <mbgl/programs/uniforms.hpp>
@@ -47,3 +50,5 @@ using HeatmapLayoutVertex = HeatmapProgram::LayoutVertex;
 using HeatmapAttributes = HeatmapProgram::Attributes;
 
 } // namespace mbgl
+
+#endif

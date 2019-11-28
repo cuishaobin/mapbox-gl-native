@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
+
 #include <mbgl/tile/raster_dem_tile_worker.hpp>
 #include <mbgl/tile/raster_dem_tile.hpp>
 #include <mbgl/renderer/buckets/hillshade_bucket.hpp>
@@ -25,3 +28,5 @@ void RasterDEMTileWorker::parse(std::shared_ptr<const std::string> data, uint64_
 }
 
 } // namespace mbgl
+
+#endif

@@ -1,6 +1,8 @@
 // NOTE: DO NOT CHANGE THIS FILE. IT IS AUTOMATICALLY GENERATED.
 
 #include <mbgl/shaders/hillshade_prepare.hpp>
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 namespace mbgl {
 namespace shaders {
@@ -98,3 +100,5 @@ void main() {
 
 } // namespace shaders
 } // namespace mbgl
+
+#endif

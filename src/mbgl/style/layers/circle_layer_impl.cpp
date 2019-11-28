@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
+
 #include <mbgl/style/layers/circle_layer_impl.hpp>
 
 namespace mbgl {
@@ -13,3 +16,5 @@ bool CircleLayer::Impl::hasLayoutDifference(const Layer::Impl& other) const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

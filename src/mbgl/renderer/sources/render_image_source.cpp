@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
+
 #include <mbgl/map/transform_state.hpp>
 #include <mbgl/math/log2.hpp>
 #include <mbgl/renderer/buckets/raster_bucket.hpp>
@@ -219,3 +222,5 @@ void RenderImageSource::dumpDebugLogs() const {
 }
 
 } // namespace mbgl
+
+#endif

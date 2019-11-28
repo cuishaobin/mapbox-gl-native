@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
 
 #include <mbgl/renderer/render_layer.hpp>
 #include <mbgl/style/layers/circle_layer_impl.hpp>
@@ -39,3 +41,5 @@ inline bool RenderLayer::is<RenderCircleLayer>() const {
 }
 
 } // namespace mbgl
+
+#endif

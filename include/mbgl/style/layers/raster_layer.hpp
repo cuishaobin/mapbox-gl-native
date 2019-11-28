@@ -1,6 +1,8 @@
 // This file is generated. Do not edit.
 
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/style/layer.hpp>
 #include <mbgl/style/filter.hpp>
@@ -96,3 +98,5 @@ inline bool Layer::is<RasterLayer>() const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

@@ -1,4 +1,5 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
 
 #include <mbgl/programs/background_program.hpp>
 #include <mbgl/programs/circle_program.hpp>
@@ -24,7 +25,9 @@ public:
     Programs(gl::Context& context, const ProgramParameters& programParameters)
         : background(context, programParameters),
           backgroundPattern(context, programParameters),
+#if mbgl_core_include_circlelayer
           circle(context, programParameters),
+#endif
           extrusionTexture(context, programParameters),
           fill(context, programParameters),
           fillExtrusion(context, programParameters),
@@ -32,10 +35,14 @@ public:
           fillPattern(context, programParameters),
           fillOutline(context, programParameters),
           fillOutlinePattern(context, programParameters),
+#if mbgl_core_include_heatmaplayer
           heatmap(context, programParameters),
           heatmapTexture(context, programParameters),
+#endif
+#if mbgl_core_include_hillshadelayer
           hillshade(context, programParameters),
           hillshadePrepare(context, programParameters),
+#endif
           line(context, programParameters),
           lineSDF(context, programParameters),
           linePattern(context, programParameters),
@@ -51,7 +58,9 @@ public:
 
     BackgroundProgram background;
     BackgroundPatternProgram backgroundPattern;
+#if mbgl_core_include_circlelayer
     ProgramMap<CircleProgram> circle;
+#endif
     ExtrusionTextureProgram extrusionTexture;
     ProgramMap<FillProgram> fill;
     ProgramMap<FillExtrusionProgram> fillExtrusion;
@@ -59,10 +68,15 @@ public:
     ProgramMap<FillPatternProgram> fillPattern;
     ProgramMap<FillOutlineProgram> fillOutline;
     ProgramMap<FillOutlinePatternProgram> fillOutlinePattern;
+#if mbgl_core_include_heatmaplayer
     ProgramMap<HeatmapProgram> heatmap;
     HeatmapTextureProgram heatmapTexture;
+#endif
+
+#if mbgl_core_include_hillshadelayer
     HillshadeProgram hillshade;
     HillshadePrepareProgram hillshadePrepare;
+#endif
     ProgramMap<LineProgram> line;
     ProgramMap<LineSDFProgram> lineSDF;
     ProgramMap<LinePatternProgram> linePattern;

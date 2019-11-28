@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
+
 #include <mbgl/renderer/layers/render_circle_layer.hpp>
 #include <mbgl/renderer/buckets/circle_bucket.hpp>
 #include <mbgl/renderer/render_tile.hpp>
@@ -180,3 +183,5 @@ bool RenderCircleLayer::queryIntersectsFeature(
 }
 
 } // namespace mbgl
+
+#endif

@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
+
 #include <mbgl/renderer/layers/render_raster_layer.hpp>
 #include <mbgl/renderer/buckets/raster_bucket.hpp>
 #include <mbgl/renderer/render_tile.hpp>
@@ -170,3 +173,5 @@ void RenderRasterLayer::render(PaintParameters& parameters, RenderSource* source
 }
 
 } // namespace mbgl
+
+#endif

@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
+
 #include <mbgl/renderer/sources/render_raster_source.hpp>
 #include <mbgl/renderer/render_tile.hpp>
 #include <mbgl/tile/raster_tile.hpp>
@@ -94,3 +97,5 @@ void RenderRasterSource::dumpDebugLogs() const {
 }
 
 } // namespace mbgl
+
+#endif

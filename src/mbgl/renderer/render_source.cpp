@@ -1,3 +1,5 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+
 #include <mbgl/renderer/render_source.hpp>
 #include <mbgl/renderer/render_source_observer.hpp>
 #include <mbgl/renderer/sources/render_geojson_source.hpp>
@@ -19,20 +21,45 @@ std::unique_ptr<RenderSource> RenderSource::create(Immutable<Source::Impl> impl)
     case SourceType::Vector:
         return std::make_unique<RenderVectorSource>(staticImmutableCast<VectorSource::Impl>(impl));
     case SourceType::Raster:
+#if mbgl_core_include_rasterlayer
         return std::make_unique<RenderRasterSource>(staticImmutableCast<RasterSource::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case SourceType::RasterDEM:
+#if mbgl_core_include_hillshadelayer
         return std::make_unique<RenderRasterDEMSource>(staticImmutableCast<RasterSource::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case SourceType::GeoJSON:
+#if mbgl_core_include_geojson
         return std::make_unique<RenderGeoJSONSource>(staticImmutableCast<GeoJSONSource::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case SourceType::Video:
         assert(false);
         return nullptr;
     case SourceType::Annotations:
         return std::make_unique<RenderAnnotationSource>(staticImmutableCast<AnnotationSource::Impl>(impl));
     case SourceType::Image:
+#if mbgl_core_include_rasterlayer
         return std::make_unique<RenderImageSource>(staticImmutableCast<ImageSource::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case SourceType::CustomVector:
+#if mbgl_core_include_geojson
         return std::make_unique<RenderCustomGeometrySource>(staticImmutableCast<CustomGeometrySource::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     }
 
     // Not reachable, but placate GCC.

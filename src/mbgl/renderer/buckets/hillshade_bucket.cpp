@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
+
 #include <mbgl/renderer/buckets/hillshade_bucket.hpp>
 #include <mbgl/renderer/layers/render_hillshade_layer.hpp>
 #include <mbgl/programs/hillshade_program.hpp>
@@ -111,3 +114,5 @@ bool HillshadeBucket::hasData() const {
 }
 
 } // namespace mbgl
+
+#endif

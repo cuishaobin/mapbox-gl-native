@@ -1,6 +1,8 @@
 // This file is generated. Edit scripts/generate-style-code.js, then run `make style-code`.
 
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
 
 #include <mbgl/style/types.hpp>
 #include <mbgl/style/layout_property.hpp>
@@ -72,3 +74,5 @@ class CirclePaintProperties : public Properties<
 
 } // namespace style
 } // namespace mbgl
+
+#endif

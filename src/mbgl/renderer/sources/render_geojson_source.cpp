@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_geojson
+
 #include <mbgl/renderer/sources/render_geojson_source.hpp>
 #include <mbgl/renderer/render_tile.hpp>
 #include <mbgl/renderer/paint_parameters.hpp>
@@ -103,3 +106,5 @@ void RenderGeoJSONSource::dumpDebugLogs() const {
 }
 
 } // namespace mbgl
+
+#endif

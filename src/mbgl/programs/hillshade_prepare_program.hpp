@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 #include <mbgl/programs/program.hpp>
 #include <mbgl/programs/attributes.hpp>
@@ -47,3 +49,5 @@ using HillshadePrepareLayoutVertex = HillshadePrepareProgram::LayoutVertex;
 using HillshadePrepareAttributes = HillshadePrepareProgram::Attributes;
 
 } // namespace mbgl
+
+#endif

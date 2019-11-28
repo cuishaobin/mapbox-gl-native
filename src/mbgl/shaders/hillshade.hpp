@@ -1,6 +1,8 @@
 // NOTE: DO NOT CHANGE THIS FILE. IT IS AUTOMATICALLY GENERATED.
 
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 namespace mbgl {
 namespace shaders {
@@ -14,3 +16,5 @@ public:
 
 } // namespace shaders
 } // namespace mbgl
+
+#endif

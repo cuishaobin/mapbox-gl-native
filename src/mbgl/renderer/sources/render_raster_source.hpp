@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/renderer/render_source.hpp>
 #include <mbgl/renderer/tile_pyramid.hpp>
@@ -49,3 +51,5 @@ inline bool RenderSource::is<RenderRasterSource>() const {
 }
 
 } // namespace mbgl
+
+#endif

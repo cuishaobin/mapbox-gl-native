@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/tile/tile.hpp>
 #include <mbgl/tile/tile_loader.hpp>
@@ -50,3 +52,5 @@ private:
 };
 
 } // namespace mbgl
+
+#endif

@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
 
 #include <mbgl/renderer/bucket.hpp>
 #include <mbgl/map/mode.hpp>
@@ -38,3 +40,5 @@ public:
 };
 
 } // namespace mbgl
+
+#endif

@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/renderer/buckets/heatmap_bucket.hpp>
 #include <mbgl/renderer/bucket_parameters.hpp>
 #include <mbgl/programs/heatmap_program.hpp>
@@ -96,3 +99,5 @@ float HeatmapBucket::getQueryRadius(const RenderLayer& layer) const {
 }
 
 } // namespace mbgl
+
+#endif

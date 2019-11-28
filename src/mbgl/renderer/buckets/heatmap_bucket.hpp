@@ -1,5 +1,8 @@
 #pragma once
 
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/renderer/bucket.hpp>
 #include <mbgl/map/mode.hpp>
 #include <mbgl/tile/geometry_tile_data.hpp>
@@ -38,3 +41,5 @@ public:
 };
 
 } // namespace mbgl
+
+#endif

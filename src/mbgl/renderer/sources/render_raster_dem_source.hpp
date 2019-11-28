@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 #include <mbgl/renderer/render_source.hpp>
 #include <mbgl/renderer/tile_pyramid.hpp>
@@ -57,3 +59,5 @@ inline bool RenderSource::is<RenderRasterDEMSource>() const {
 }
 
 } // namespace mbgl
+
+#endif

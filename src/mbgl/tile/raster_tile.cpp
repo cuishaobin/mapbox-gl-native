@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
+
 #include <mbgl/tile/raster_tile.hpp>
 #include <mbgl/tile/raster_tile_worker.hpp>
 #include <mbgl/tile/tile_observer.hpp>
@@ -79,3 +82,5 @@ void RasterTile::setNecessity(TileNecessity necessity) {
 }
 
 } // namespace mbgl
+
+#endif

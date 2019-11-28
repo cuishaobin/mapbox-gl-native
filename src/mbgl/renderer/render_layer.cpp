@@ -1,3 +1,5 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+
 #include <mbgl/renderer/render_layer.hpp>
 #include <mbgl/renderer/layers/render_background_layer.hpp>
 #include <mbgl/renderer/layers/render_circle_layer.hpp>
@@ -25,13 +27,28 @@ std::unique_ptr<RenderLayer> RenderLayer::create(Immutable<Layer::Impl> impl) {
     case LayerType::Line:
         return std::make_unique<RenderLineLayer>(staticImmutableCast<LineLayer::Impl>(impl));
     case LayerType::Circle:
+#if mbgl_core_include_circlelayer
         return std::make_unique<RenderCircleLayer>(staticImmutableCast<CircleLayer::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case LayerType::Symbol:
         return std::make_unique<RenderSymbolLayer>(staticImmutableCast<SymbolLayer::Impl>(impl));
     case LayerType::Raster:
+#if mbgl_core_include_rasterlayer
         return std::make_unique<RenderRasterLayer>(staticImmutableCast<RasterLayer::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case LayerType::Hillshade:
+#if mbgl_core_include_hillshadelayer
         return std::make_unique<RenderHillshadeLayer>(staticImmutableCast<HillshadeLayer::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     case LayerType::Background:
         return std::make_unique<RenderBackgroundLayer>(staticImmutableCast<BackgroundLayer::Impl>(impl));
     case LayerType::Custom:
@@ -39,7 +56,12 @@ std::unique_ptr<RenderLayer> RenderLayer::create(Immutable<Layer::Impl> impl) {
     case LayerType::FillExtrusion:
         return std::make_unique<RenderFillExtrusionLayer>(staticImmutableCast<FillExtrusionLayer::Impl>(impl));
     case LayerType::Heatmap:
+#if mbgl_core_include_heatmaplayer
         return std::make_unique<RenderHeatmapLayer>(staticImmutableCast<HeatmapLayer::Impl>(impl));
+#else
+        assert(false);
+        return nullptr;
+#endif
     }
 
     // Not reachable, but placate GCC.

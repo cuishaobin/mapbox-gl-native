@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/style/layers/heatmap_layer_impl.hpp>
 
 namespace mbgl {
@@ -13,3 +16,5 @@ bool HeatmapLayer::Impl::hasLayoutDifference(const Layer::Impl& other) const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

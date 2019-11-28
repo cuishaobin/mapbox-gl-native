@@ -2,6 +2,9 @@
 
 #pragma once
 
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/style/types.hpp>
 #include <mbgl/style/layout_property.hpp>
 #include <mbgl/style/paint_property.hpp>
@@ -40,3 +43,5 @@ class HeatmapPaintProperties : public Properties<
 
 } // namespace style
 } // namespace mbgl
+
+#endif

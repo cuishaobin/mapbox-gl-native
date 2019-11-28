@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
+
 #include <mbgl/renderer/layers/render_heatmap_layer.hpp>
 #include <mbgl/renderer/buckets/heatmap_bucket.hpp>
 #include <mbgl/renderer/render_tile.hpp>
@@ -212,3 +215,5 @@ bool RenderHeatmapLayer::queryIntersectsFeature(
 }
 
 } // namespace mbgl
+
+#endif

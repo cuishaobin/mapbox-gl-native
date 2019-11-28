@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
+
 #include <mbgl/renderer/buckets/circle_bucket.hpp>
 #include <mbgl/renderer/bucket_parameters.hpp>
 #include <mbgl/programs/circle_program.hpp>
@@ -114,3 +117,5 @@ float CircleBucket::getQueryRadius(const RenderLayer& layer) const {
 }
 
 } // namespace mbgl
+
+#endif

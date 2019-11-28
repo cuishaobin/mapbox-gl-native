@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
+
 #include <mbgl/style/layers/raster_layer_impl.hpp>
 
 namespace mbgl {
@@ -9,3 +12,5 @@ bool RasterLayer::Impl::hasLayoutDifference(const Layer::Impl&) const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

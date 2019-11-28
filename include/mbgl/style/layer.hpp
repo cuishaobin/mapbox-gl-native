@@ -1,4 +1,5 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
 
 #include <mbgl/util/noncopyable.hpp>
 #include <mbgl/util/unique_any.hpp>
@@ -16,14 +17,22 @@ namespace style {
 
 class FillLayer;
 class LineLayer;
+#if mbgl_core_include_circlelayer
 class CircleLayer;
+#endif
 class SymbolLayer;
+#if mbgl_core_include_rasterlayer
 class RasterLayer;
+#endif
+#if mbgl_core_include_hillshadelayer
 class HillshadeLayer;
+#endif
 class BackgroundLayer;
 class CustomLayer;
 class FillExtrusionLayer;
+#if mbgl_core_include_heatmaplayer
 class HeatmapLayer;
+#endif
 class LayerObserver;
 
 /**
@@ -81,21 +90,41 @@ public:
         case LayerType::Line:
             return std::forward<V>(visitor)(*as<LineLayer>());
         case LayerType::Circle:
+#if mbgl_core_include_circlelayer
             return std::forward<V>(visitor)(*as<CircleLayer>());
+#else
+            assert(false);
+            throw new std::runtime_error("unknown layer type");
+#endif
         case LayerType::Symbol:
             return std::forward<V>(visitor)(*as<SymbolLayer>());
         case LayerType::Raster:
+#if mbgl_core_include_rasterlayer
             return std::forward<V>(visitor)(*as<RasterLayer>());
+#else
+            assert(false);
+            throw new std::runtime_error("unknown layer type");
+#endif
         case LayerType::Background:
             return std::forward<V>(visitor)(*as<BackgroundLayer>());
         case LayerType::Hillshade:
+#if mbgl_core_include_hillshadelayer
             return std::forward<V>(visitor)(*as<HillshadeLayer>());
+#else
+            assert(false);
+            throw new std::runtime_error("unknown layer type");
+#endif
         case LayerType::Custom:
             return std::forward<V>(visitor)(*as<CustomLayer>());
         case LayerType::FillExtrusion:
             return std::forward<V>(visitor)(*as<FillExtrusionLayer>());
         case LayerType::Heatmap:
+#if mbgl_core_include_heatmaplayer
             return std::forward<V>(visitor)(*as<HeatmapLayer>());
+#else
+            assert(false);
+            throw new std::runtime_error("unknown layer type");
+#endif
         }
 
 

@@ -1,6 +1,8 @@
 // This file is generated. Do not edit.
 
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 #include <mbgl/style/layer.hpp>
 #include <mbgl/style/filter.hpp>
@@ -84,3 +86,5 @@ inline bool Layer::is<HillshadeLayer>() const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

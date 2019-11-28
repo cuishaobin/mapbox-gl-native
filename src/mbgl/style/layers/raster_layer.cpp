@@ -1,4 +1,6 @@
 // This file is generated. Edit scripts/generate-style-code.js, then run `make style-code`.
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
 
 #include <mbgl/style/layers/raster_layer.hpp>
 #include <mbgl/style/layers/raster_layer_impl.hpp>
@@ -292,3 +294,5 @@ TransitionOptions RasterLayer::getRasterFadeDurationTransition() const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

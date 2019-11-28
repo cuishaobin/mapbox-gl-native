@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 #include <mbgl/renderer/render_layer.hpp>
 #include <mbgl/style/layers/hillshade_layer_impl.hpp>
@@ -36,3 +38,5 @@ inline bool RenderLayer::is<RenderHillshadeLayer>() const {
 }
 
 } // namespace mbgl
+
+#endif

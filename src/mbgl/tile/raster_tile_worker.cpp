@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_rasterlayer
+
 #include <mbgl/tile/raster_tile_worker.hpp>
 #include <mbgl/tile/raster_tile.hpp>
 #include <mbgl/renderer/buckets/raster_bucket.hpp>
@@ -25,3 +28,5 @@ void RasterTileWorker::parse(std::shared_ptr<const std::string> data, uint64_t c
 }
 
 } // namespace mbgl
+
+#endif

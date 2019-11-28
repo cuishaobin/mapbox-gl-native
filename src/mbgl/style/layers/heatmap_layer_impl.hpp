@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_heatmaplayer
 
 #include <mbgl/style/layer_impl.hpp>
 #include <mbgl/style/layers/heatmap_layer.hpp>
@@ -19,3 +21,5 @@ public:
 
 } // namespace style
 } // namespace mbgl
+
+#endif

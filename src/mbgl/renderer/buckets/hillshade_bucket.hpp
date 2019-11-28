@@ -1,4 +1,6 @@
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
 
 #include <mbgl/gl/index_buffer.hpp>
 #include <mbgl/gl/texture.hpp>
@@ -57,3 +59,5 @@ private:
 };
 
 } // namespace mbgl
+
+#endif

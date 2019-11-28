@@ -1,6 +1,8 @@
 // This file is generated. Do not edit.
 
 #pragma once
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_circlelayer
 
 #include <mbgl/style/layer.hpp>
 #include <mbgl/style/filter.hpp>
@@ -119,3 +121,5 @@ inline bool Layer::is<CircleLayer>() const {
 
 } // namespace style
 } // namespace mbgl
+
+#endif

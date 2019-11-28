@@ -1,3 +1,6 @@
+#include <mbgl/util/mbgl-coreConfig.h>
+#if mbgl_core_include_hillshadelayer
+
 #include <mbgl/tile/raster_dem_tile.hpp>
 #include <mbgl/tile/raster_dem_tile_worker.hpp>
 #include <mbgl/tile/tile_observer.hpp>
@@ -123,3 +126,5 @@ void RasterDEMTile::setNecessity(TileNecessity necessity) {
 }
 
 } // namespace mbgl
+
+#endif

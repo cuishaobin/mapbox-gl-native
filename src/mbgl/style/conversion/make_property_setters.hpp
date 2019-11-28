@@ -1,5 +1,6 @@
 #pragma once
 
+#include <mbgl/util/mbgl-coreConfig.h>
 // This file is generated. Edit make_property_setters.hpp.ejs, then run `make style-code`.
 
 #include <mbgl/style/conversion/property_setter.hpp>
@@ -145,6 +146,7 @@ inline auto makePaintPropertySetters() {
     result["text-translate-anchor"] = &setProperty<SymbolLayer, PropertyValue<TranslateAnchorType>, &SymbolLayer::setTextTranslateAnchor>;
     result["text-translate-anchor-transition"] = &setTransition<SymbolLayer, &SymbolLayer::setTextTranslateAnchorTransition>;
 
+#if mbgl_core_include_circlelayer
     result["circle-radius"] = &setProperty<CircleLayer, DataDrivenPropertyValue<float>, &CircleLayer::setCircleRadius>;
     result["circle-radius-transition"] = &setTransition<CircleLayer, &CircleLayer::setCircleRadiusTransition>;
     result["circle-color"] = &setProperty<CircleLayer, DataDrivenPropertyValue<Color>, &CircleLayer::setCircleColor>;
@@ -167,7 +169,9 @@ inline auto makePaintPropertySetters() {
     result["circle-stroke-color-transition"] = &setTransition<CircleLayer, &CircleLayer::setCircleStrokeColorTransition>;
     result["circle-stroke-opacity"] = &setProperty<CircleLayer, DataDrivenPropertyValue<float>, &CircleLayer::setCircleStrokeOpacity>;
     result["circle-stroke-opacity-transition"] = &setTransition<CircleLayer, &CircleLayer::setCircleStrokeOpacityTransition>;
+#endif
 
+#if mbgl_core_include_heatmaplayer
     result["heatmap-radius"] = &setProperty<HeatmapLayer, DataDrivenPropertyValue<float>, &HeatmapLayer::setHeatmapRadius>;
     result["heatmap-radius-transition"] = &setTransition<HeatmapLayer, &HeatmapLayer::setHeatmapRadiusTransition>;
     result["heatmap-weight"] = &setProperty<HeatmapLayer, DataDrivenPropertyValue<float>, &HeatmapLayer::setHeatmapWeight>;
@@ -178,7 +182,8 @@ inline auto makePaintPropertySetters() {
     result["heatmap-color-transition"] = &setTransition<HeatmapLayer, &HeatmapLayer::setHeatmapColorTransition>;
     result["heatmap-opacity"] = &setProperty<HeatmapLayer, PropertyValue<float>, &HeatmapLayer::setHeatmapOpacity>;
     result["heatmap-opacity-transition"] = &setTransition<HeatmapLayer, &HeatmapLayer::setHeatmapOpacityTransition>;
-
+#endif
+    
     result["fill-extrusion-opacity"] = &setProperty<FillExtrusionLayer, PropertyValue<float>, &FillExtrusionLayer::setFillExtrusionOpacity>;
     result["fill-extrusion-opacity-transition"] = &setTransition<FillExtrusionLayer, &FillExtrusionLayer::setFillExtrusionOpacityTransition>;
     result["fill-extrusion-color"] = &setProperty<FillExtrusionLayer, DataDrivenPropertyValue<Color>, &FillExtrusionLayer::setFillExtrusionColor>;
@@ -194,6 +199,7 @@ inline auto makePaintPropertySetters() {
     result["fill-extrusion-base"] = &setProperty<FillExtrusionLayer, DataDrivenPropertyValue<float>, &FillExtrusionLayer::setFillExtrusionBase>;
     result["fill-extrusion-base-transition"] = &setTransition<FillExtrusionLayer, &FillExtrusionLayer::setFillExtrusionBaseTransition>;
 
+ #if mbgl_core_include_rasterlayer
     result["raster-opacity"] = &setProperty<RasterLayer, PropertyValue<float>, &RasterLayer::setRasterOpacity>;
     result["raster-opacity-transition"] = &setTransition<RasterLayer, &RasterLayer::setRasterOpacityTransition>;
     result["raster-hue-rotate"] = &setProperty<RasterLayer, PropertyValue<float>, &RasterLayer::setRasterHueRotate>;
@@ -210,7 +216,9 @@ inline auto makePaintPropertySetters() {
     result["raster-resampling-transition"] = &setTransition<RasterLayer, &RasterLayer::setRasterResamplingTransition>;
     result["raster-fade-duration"] = &setProperty<RasterLayer, PropertyValue<float>, &RasterLayer::setRasterFadeDuration>;
     result["raster-fade-duration-transition"] = &setTransition<RasterLayer, &RasterLayer::setRasterFadeDurationTransition>;
-
+#endif
+    
+#if mbgl_core_include_hillshadelayer
     result["hillshade-illumination-direction"] = &setProperty<HillshadeLayer, PropertyValue<float>, &HillshadeLayer::setHillshadeIlluminationDirection>;
     result["hillshade-illumination-direction-transition"] = &setTransition<HillshadeLayer, &HillshadeLayer::setHillshadeIlluminationDirectionTransition>;
     result["hillshade-illumination-anchor"] = &setProperty<HillshadeLayer, PropertyValue<HillshadeIlluminationAnchorType>, &HillshadeLayer::setHillshadeIlluminationAnchor>;
@@ -223,7 +231,8 @@ inline auto makePaintPropertySetters() {
     result["hillshade-highlight-color-transition"] = &setTransition<HillshadeLayer, &HillshadeLayer::setHillshadeHighlightColorTransition>;
     result["hillshade-accent-color"] = &setProperty<HillshadeLayer, PropertyValue<Color>, &HillshadeLayer::setHillshadeAccentColor>;
     result["hillshade-accent-color-transition"] = &setTransition<HillshadeLayer, &HillshadeLayer::setHillshadeAccentColorTransition>;
-
+#endif
+    
     result["background-color"] = &setProperty<BackgroundLayer, PropertyValue<Color>, &BackgroundLayer::setBackgroundColor>;
     result["background-color-transition"] = &setTransition<BackgroundLayer, &BackgroundLayer::setBackgroundColorTransition>;
     result["background-pattern"] = &setProperty<BackgroundLayer, PropertyValue<std::string>, &BackgroundLayer::setBackgroundPattern>;
