@@ -208,16 +208,21 @@ std::unique_ptr<AsyncRequest> HTTPFileSource::request(const Resource& resource, 
         NSURL* url = [NSURL URLWithString:@(resource.url.c_str())];
         if (impl->accountType == 0 &&
             ([url.host isEqualToString:@"mapbox.com"] || [url.host hasSuffix:@".mapbox.com"])) {
+            /*
             NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
             NSString *skuToken = [AMapMBGlobalSetting sharedInstance].skuToken;
             NSArray *newQueryItems = @[
                                        [NSURLQueryItem queryItemWithName:@"events" value:@"true"],
                                        [NSURLQueryItem queryItemWithName:@"sku" value:skuToken?:@""]
                                        ];
-            
+
             components.queryItems = components.queryItems ? [components.queryItems arrayByAddingObjectsFromArray:newQueryItems] : newQueryItems;
-            
+
             url = components.URL;
+            */
+            NSString* absoluteString = [url.absoluteString
+                                        stringByAppendingFormat:(url.query ? @"&%@" : @"?%@"), @"events=true"];
+            url = [NSURL URLWithString:absoluteString];
         }
         
         

@@ -20,4 +20,12 @@
     return s_this;
 }
 
+
+- (NSString *)skuToken {
+    if(self.skutokenGenerator) {
+        return self.skutokenGenerator(nil);
+    } else {
+        return nil;
+    }
+}
 @end

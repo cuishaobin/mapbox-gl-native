@@ -10,8 +10,9 @@
 
 @interface AMapMBGlobalSetting : NSObject
 
-+ (instancetype)sharedInstance;
+@property (nonatomic, strong, readonly) NSString *skuToken;
+@property (nonatomic, copy) NSString*(^skutokenGenerator)(NSDictionary *params);
 
-@property (nonatomic, strong) NSString *skuToken;
++ (instancetype)sharedInstance;
 
 @end
