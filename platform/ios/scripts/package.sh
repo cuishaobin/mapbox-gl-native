@@ -268,3 +268,13 @@ cp ${README} "${OUTPUT}"
 
 step "Generating API documentation…"
 make idocument OUTPUT="${OUTPUT}/documentation"
+
+step "copy files needed by AMap…"
+if [[ ${BUILD_STATIC} == true ]]; then
+    if [[ ! -d "${OUTPUT}/static/${NAME}.framework/AMapHeaders/" ]]; then
+        mkdir "${OUTPUT}/static/${NAME}.framework/AMapHeaders/"
+    fi
+    cp -rv "./include" "${OUTPUT}/static/${NAME}.framework/AMapHeaders/"
+    cp -rv "./src/mbgl" "${OUTPUT}/static/${NAME}.framework/AMapHeaders/"
+    cp -v "${VERSION}" "${OUTPUT}/static/${NAME}.framework/"
+fi
