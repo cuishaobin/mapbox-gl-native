@@ -99,7 +99,9 @@ void OfflineDatabase::ensureSchema() {
         db->exec("PRAGMA user_version = 6");
     } catch (...) {
         Log::Error(Event::Database, "Unexpected error creating database schema: %s", util::toString(std::current_exception()).c_str());
-        throw;
+        removeExisting();
+        ensureSchema();
+        //throw;
     }
 }
 
