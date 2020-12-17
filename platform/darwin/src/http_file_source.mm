@@ -12,7 +12,7 @@
 #include <chrono>
 
 #if TARGET_OS_IPHONE || TARGET_OS_SIMULATOR
-#import "AMapMBGlobalSetting.h"
+//#import "AMapMBGlobalSetting.h"
 #endif
 
 @interface MBGLBundleCanary : NSObject
