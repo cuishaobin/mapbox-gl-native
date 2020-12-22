@@ -32,6 +32,14 @@
 #include <mbgl/util/string.hpp>
 #include <mbgl/util/logging.hpp>
 
+/*
+ 参数说明：
+ phase: 0:3D； 1:opaque； 2:translucent
+ 返回值：true:绘制这个layer; false:不绘制这个layer
+ */
+typedef bool (*com_amap_mapboxRenderFilterFunc)(int32_t phase, const char* layerID, int32_t layerIndex);
+extern "C" com_amap_mapboxRenderFilterFunc g_mapboxRenderFilter = NULL;
+
 namespace mbgl {
 
 using namespace style;
@@ -472,8 +480,14 @@ void Renderer::Impl::render(const UpdateParameters& updateParameters) {
         for (auto it = order.begin(); it != order.end(); ++it, --i) {
             parameters.currentLayer = i;
             if (it->layer.hasRenderPass(parameters.pass)) {
-                MBGL_DEBUG_GROUP(parameters.context, it->layer.getID());
-                it->layer.render(parameters, it->source);
+                bool canRender = true;
+                if(g_mapboxRenderFilter != NULL) {
+                    canRender = g_mapboxRenderFilter(0, it->layer.getID().c_str(), i);
+                }
+                if(canRender) {
+                    MBGL_DEBUG_GROUP(parameters.context, it->layer.getID());
+                    it->layer.render(parameters, it->source);
+                }
             }
         }
     }
@@ -584,8 +598,14 @@ void Renderer::Impl::render(const UpdateParameters& updateParameters) {
         for (auto it = order.rbegin(); it != order.rend(); ++it, ++i) {
             parameters.currentLayer = i;
             if (it->layer.hasRenderPass(parameters.pass)) {
-                MBGL_DEBUG_GROUP(parameters.context, it->layer.getID());
-                it->layer.render(parameters, it->source);
+                bool canRender = true;
+                if(g_mapboxRenderFilter != NULL) {
+                    canRender = g_mapboxRenderFilter(1, it->layer.getID().c_str(), i);
+                }
+                if(canRender) {
+                    MBGL_DEBUG_GROUP(parameters.context, it->layer.getID());
+                    it->layer.render(parameters, it->source);
+                }
             }
         }
     }
@@ -600,8 +620,14 @@ void Renderer::Impl::render(const UpdateParameters& updateParameters) {
         for (auto it = order.begin(); it != order.end(); ++it, --i) {
             parameters.currentLayer = i;
             if (it->layer.hasRenderPass(parameters.pass)) {
-                MBGL_DEBUG_GROUP(parameters.context, it->layer.getID());
-                it->layer.render(parameters, it->source);
+                bool canRender = true;
+                if(g_mapboxRenderFilter != NULL) {
+                    canRender = g_mapboxRenderFilter(2, it->layer.getID().c_str(), i);
+                }
+                if(canRender) {
+                    MBGL_DEBUG_GROUP(parameters.context, it->layer.getID());
+                    it->layer.render(parameters, it->source);
+                }
             }
         }
     }
